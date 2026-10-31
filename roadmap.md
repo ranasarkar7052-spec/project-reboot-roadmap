@@ -1,0 +1,12 @@
+# LocalFix roadmap
+- [x] Audit: auth/roles, provider visibility, profiles, re-verification, bookings, commission, admin
+- [x] Fix verified bugs (smallest safe changes)
+- [x] Customer profile view/edit with address fields
+- [x] Provider profile edit + re-verification queue in admin
+- [x] E2E test with test accounts (customer, provider, admin), then remove test accounts
+- [x] Build, tests, lint, security scan; final evidence report
+- [ ] Needs owner decision: reviews block deleting a provider/customer account (foreign key without ON DELETE)
+- [ ] Needs owner decision: hide providers marked "not available" from public listings?
+- [ ] Owner action: create first real admin, import old data/users, publish
+- [x] Split customer site/app and provider portal/app (menus, notifications, booking details, install icons, Android packaging)
+- [ ] Owner action: publish, then build the two Android apps per ANDROID.md

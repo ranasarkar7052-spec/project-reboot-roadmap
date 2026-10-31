@@ -1,0 +1,15 @@
+{
+  "id": "/provider/",
+  "name": "LocalFix Provider",
+  "short_name": "LocalFix Pro",
+  "description": "Manage your LocalFix jobs and earnings.",
+  "start_url": "/provider/dashboard",
+  "scope": "/provider/",
+  "display": "standalone",
+  "background_color": "#f9fafb",
+  "theme_color": "#14664e",
+  "icons": [
+    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
