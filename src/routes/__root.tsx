@@ -1,5 +1,6 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
+  useRouterState,
   Outlet,
   Link,
   createRootRouteWithContext,
@@ -12,6 +13,9 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { I18nProvider } from "@/lib/i18n";
+import { AuthProvider } from "@/lib/auth";
+import { sideFromPath } from "@/lib/portal";
 
 function NotFoundComponent() {
   return (
@@ -78,14 +82,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
+      { title: "LocalFix — Trusted local repair services" },
+      { name: "description", content: "Book verified electricians, plumbers and repair workers near you in West Bengal." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
       {
@@ -93,6 +93,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: appCss,
       },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700&display=swap",
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -101,11 +107,26 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+/** Customer and provider install as two separate home-screen apps with the same LocalFix look. */
+function AppManifest() {
+  const path = useRouterState({ select: (s) => s.location.pathname });
+  const side = sideFromPath(path);
+  return (
+    <>
+      <link rel="manifest" href={side === "provider" ? "/manifest-provider.webmanifest" : "/manifest-customer.webmanifest"} />
+      <meta name="theme-color" content="#14664e" />
+      <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+      <meta name="apple-mobile-web-app-title" content={side === "provider" ? "LocalFix Pro" : "LocalFix"} />
+    </>
+  );
+}
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <AppManifest />
       </head>
       <body>
         {children}
@@ -121,7 +142,11 @@ function RootComponent() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <I18nProvider>
+        <AuthProvider>
+          <Outlet />
+        </AuthProvider>
+      </I18nProvider>
     </QueryClientProvider>
   );
 }

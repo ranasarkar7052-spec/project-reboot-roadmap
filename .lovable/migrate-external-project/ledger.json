@@ -1,0 +1,72 @@
+[
+ {
+  "capability": "code",
+  "source": "TanStack Start app (zipped-seed-to-app-main.zip)",
+  "outcome": "migrate",
+  "status": "verified",
+  "next_action": ""
+ },
+ {
+  "capability": "schema",
+  "source": "drizzle/migrations 0000-0006",
+  "outcome": "migrate",
+  "status": "verified",
+  "next_action": ""
+ },
+ {
+  "capability": "records",
+  "source": "previous database",
+  "outcome": "migrate",
+  "status": "pending",
+  "next_action": "user to supply CSV/JSON exports per table"
+ },
+ {
+  "capability": "auth identities",
+  "source": "email/password auth",
+  "outcome": "migrate",
+  "status": "pending",
+  "next_action": "user export (id, email); first-login reset via /forgot-password"
+ },
+ {
+  "capability": "authorization",
+  "source": "user_roles + has_role + RLS + RPCs",
+  "outcome": "migrate",
+  "status": "verified",
+  "next_action": "assign first admin after owner signs up"
+ },
+ {
+  "capability": "uploaded file bytes",
+  "source": "none",
+  "outcome": "none",
+  "status": "verified",
+  "next_action": ""
+ },
+ {
+  "capability": "external providers/webhooks/schedules",
+  "source": "none",
+  "outcome": "none",
+  "status": "verified",
+  "next_action": ""
+ },
+ {
+  "capability": "secrets",
+  "source": ".env excluded; LOVABLE_DB_MIGRATION_URL is platform metadata",
+  "outcome": "none",
+  "status": "verified",
+  "next_action": ""
+ },
+ {
+  "capability": "cutover",
+  "source": "old published site",
+  "outcome": "user",
+  "status": "pending",
+  "next_action": "publish when ready"
+ },
+ {
+  "capability": "verification",
+  "source": "",
+  "outcome": "verify",
+  "status": "partial",
+  "next_action": "build, tests and public pages verified; signed-in flows untested (no users yet)"
+ }
+]
