@@ -29,7 +29,7 @@ export function BottomNav() {
           </span>
           {t('nav.bookNow')}
         </Link>
-        <Link to="/notifications" activeProps={active} className={item}>
+        <Link to="/chats" activeProps={active} className={item}>
           <MessageCircle className="h-5 w-5" /> {t('nav.chats')}
         </Link>
         {session ? (

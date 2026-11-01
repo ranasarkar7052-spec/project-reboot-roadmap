@@ -22,6 +22,7 @@ import { Route as RegisterRouteImport } from './routes/register'
 import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as AuthenticatedAdminRouteRouteImport } from './routes/_authenticated/admin/route'
 import { Route as AuthenticatedBookingRouteImport } from './routes/_authenticated/booking'
+import { Route as AuthenticatedChatsRouteImport } from './routes/_authenticated/chats'
 import { Route as AuthenticatedCustomerRouteRouteImport } from './routes/_authenticated/customer/route'
 import { Route as AuthenticatedNotificationsRouteImport } from './routes/_authenticated/notifications'
 import { Route as AuthenticatedProviderRouteRouteImport } from './routes/_authenticated/provider/route'
@@ -34,6 +35,7 @@ import { Route as AuthenticatedAdminPricingRouteImport } from './routes/_authent
 import { Route as AuthenticatedAdminProvidersRouteImport } from './routes/_authenticated/admin/providers'
 import { Route as AuthenticatedAdminServicesRouteImport } from './routes/_authenticated/admin/services'
 import { Route as AuthenticatedBookingsBookingIdRouteImport } from './routes/_authenticated/bookings.$bookingId'
+import { Route as AuthenticatedChatsSupportRouteImport } from './routes/_authenticated/chats_.support'
 import { Route as AuthenticatedCustomerBookingsRouteImport } from './routes/_authenticated/customer/bookings'
 import { Route as AuthenticatedCustomerProfileRouteImport } from './routes/_authenticated/customer/profile'
 import { Route as AuthenticatedProviderIndexRouteImport } from './routes/_authenticated/provider/index'
@@ -110,6 +112,11 @@ const AuthenticatedBookingRoute = AuthenticatedBookingRouteImport.update({
   path: '/booking',
   getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
+const AuthenticatedChatsRoute = AuthenticatedChatsRouteImport.update({
+  id: '/chats',
+  path: '/chats',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedCustomerRouteRoute =
   AuthenticatedCustomerRouteRouteImport.update({
     id: '/customer',
@@ -177,6 +184,12 @@ const AuthenticatedBookingsBookingIdRoute =
   AuthenticatedBookingsBookingIdRouteImport.update({
     id: '/bookings/$bookingId',
     path: '/bookings/$bookingId',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any)
+const AuthenticatedChatsSupportRoute =
+  AuthenticatedChatsSupportRouteImport.update({
+    id: '/chats_/support',
+    path: '/chats/support',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any)
 const AuthenticatedCustomerBookingsRoute =
@@ -260,6 +273,7 @@ export interface FileRoutesByFullPath {
   '/customer': typeof AuthenticatedCustomerRouteRouteWithChildren
   '/provider': typeof AuthenticatedProviderRouteRouteWithChildren
   '/booking': typeof AuthenticatedBookingRoute
+  '/chats': typeof AuthenticatedChatsRoute
   '/notifications': typeof AuthenticatedNotificationsRoute
   '/admin/login': typeof AdminLoginRoute
   '/provider/login': typeof ProviderLoginRoute
@@ -269,6 +283,7 @@ export interface FileRoutesByFullPath {
   '/admin/providers': typeof AuthenticatedAdminProvidersRoute
   '/admin/services': typeof AuthenticatedAdminServicesRoute
   '/bookings/$bookingId': typeof AuthenticatedBookingsBookingIdRoute
+  '/chats/support': typeof AuthenticatedChatsSupportRoute
   '/customer/bookings': typeof AuthenticatedCustomerBookingsRoute
   '/customer/profile': typeof AuthenticatedCustomerProfileRoute
   '/provider/bookings': typeof AuthenticatedProviderBookingsRoute
@@ -295,6 +310,7 @@ export interface FileRoutesByTo {
   '/reset-password': typeof ResetPasswordRoute
   '/customer': typeof AuthenticatedCustomerRouteRouteWithChildren
   '/booking': typeof AuthenticatedBookingRoute
+  '/chats': typeof AuthenticatedChatsRoute
   '/notifications': typeof AuthenticatedNotificationsRoute
   '/admin/login': typeof AdminLoginRoute
   '/provider/login': typeof ProviderLoginRoute
@@ -304,6 +320,7 @@ export interface FileRoutesByTo {
   '/admin/providers': typeof AuthenticatedAdminProvidersRoute
   '/admin/services': typeof AuthenticatedAdminServicesRoute
   '/bookings/$bookingId': typeof AuthenticatedBookingsBookingIdRoute
+  '/chats/support': typeof AuthenticatedChatsSupportRoute
   '/customer/bookings': typeof AuthenticatedCustomerBookingsRoute
   '/customer/profile': typeof AuthenticatedCustomerProfileRoute
   '/provider/bookings': typeof AuthenticatedProviderBookingsRoute
@@ -334,6 +351,7 @@ export interface FileRoutesById {
   '/_authenticated/customer': typeof AuthenticatedCustomerRouteRouteWithChildren
   '/_authenticated/provider': typeof AuthenticatedProviderRouteRouteWithChildren
   '/_authenticated/booking': typeof AuthenticatedBookingRoute
+  '/_authenticated/chats': typeof AuthenticatedChatsRoute
   '/_authenticated/notifications': typeof AuthenticatedNotificationsRoute
   '/admin/login': typeof AdminLoginRoute
   '/provider/login': typeof ProviderLoginRoute
@@ -343,6 +361,7 @@ export interface FileRoutesById {
   '/_authenticated/admin/providers': typeof AuthenticatedAdminProvidersRoute
   '/_authenticated/admin/services': typeof AuthenticatedAdminServicesRoute
   '/_authenticated/bookings/$bookingId': typeof AuthenticatedBookingsBookingIdRoute
+  '/_authenticated/chats_/support': typeof AuthenticatedChatsSupportRoute
   '/_authenticated/customer/bookings': typeof AuthenticatedCustomerBookingsRoute
   '/_authenticated/customer/profile': typeof AuthenticatedCustomerProfileRoute
   '/_authenticated/provider/bookings': typeof AuthenticatedProviderBookingsRoute
@@ -373,6 +392,7 @@ export interface FileRouteTypes {
     | '/customer'
     | '/provider'
     | '/booking'
+    | '/chats'
     | '/notifications'
     | '/admin/login'
     | '/provider/login'
@@ -382,6 +402,7 @@ export interface FileRouteTypes {
     | '/admin/providers'
     | '/admin/services'
     | '/bookings/$bookingId'
+    | '/chats/support'
     | '/customer/bookings'
     | '/customer/profile'
     | '/provider/bookings'
@@ -408,6 +429,7 @@ export interface FileRouteTypes {
     | '/reset-password'
     | '/customer'
     | '/booking'
+    | '/chats'
     | '/notifications'
     | '/admin/login'
     | '/provider/login'
@@ -417,6 +439,7 @@ export interface FileRouteTypes {
     | '/admin/providers'
     | '/admin/services'
     | '/bookings/$bookingId'
+    | '/chats/support'
     | '/customer/bookings'
     | '/customer/profile'
     | '/provider/bookings'
@@ -446,6 +469,7 @@ export interface FileRouteTypes {
     | '/_authenticated/customer'
     | '/_authenticated/provider'
     | '/_authenticated/booking'
+    | '/_authenticated/chats'
     | '/_authenticated/notifications'
     | '/admin/login'
     | '/provider/login'
@@ -455,6 +479,7 @@ export interface FileRouteTypes {
     | '/_authenticated/admin/providers'
     | '/_authenticated/admin/services'
     | '/_authenticated/bookings/$bookingId'
+    | '/_authenticated/chats_/support'
     | '/_authenticated/customer/bookings'
     | '/_authenticated/customer/profile'
     | '/_authenticated/provider/bookings'
@@ -579,6 +604,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedBookingRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
+    '/_authenticated/chats': {
+      id: '/_authenticated/chats'
+      path: '/chats'
+      fullPath: '/chats'
+      preLoaderRoute: typeof AuthenticatedChatsRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
     '/_authenticated/customer': {
       id: '/_authenticated/customer'
       path: '/customer'
@@ -661,6 +693,13 @@ declare module '@tanstack/react-router' {
       path: '/bookings/$bookingId'
       fullPath: '/bookings/$bookingId'
       preLoaderRoute: typeof AuthenticatedBookingsBookingIdRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/chats_/support': {
+      id: '/_authenticated/chats_/support'
+      path: '/chats/support'
+      fullPath: '/chats/support'
+      preLoaderRoute: typeof AuthenticatedChatsSupportRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/customer/bookings': {
@@ -819,8 +858,10 @@ interface AuthenticatedRouteRouteChildren {
   AuthenticatedCustomerRouteRoute: typeof AuthenticatedCustomerRouteRouteWithChildren
   AuthenticatedProviderRouteRoute: typeof AuthenticatedProviderRouteRouteWithChildren
   AuthenticatedBookingRoute: typeof AuthenticatedBookingRoute
+  AuthenticatedChatsRoute: typeof AuthenticatedChatsRoute
   AuthenticatedNotificationsRoute: typeof AuthenticatedNotificationsRoute
   AuthenticatedBookingsBookingIdRoute: typeof AuthenticatedBookingsBookingIdRoute
+  AuthenticatedChatsSupportRoute: typeof AuthenticatedChatsSupportRoute
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
@@ -828,8 +869,10 @@ const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
   AuthenticatedCustomerRouteRoute: AuthenticatedCustomerRouteRouteWithChildren,
   AuthenticatedProviderRouteRoute: AuthenticatedProviderRouteRouteWithChildren,
   AuthenticatedBookingRoute: AuthenticatedBookingRoute,
+  AuthenticatedChatsRoute: AuthenticatedChatsRoute,
   AuthenticatedNotificationsRoute: AuthenticatedNotificationsRoute,
   AuthenticatedBookingsBookingIdRoute: AuthenticatedBookingsBookingIdRoute,
+  AuthenticatedChatsSupportRoute: AuthenticatedChatsSupportRoute,
 }
 
 const AuthenticatedRouteRouteWithChildren =
