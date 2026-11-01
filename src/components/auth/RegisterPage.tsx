@@ -79,10 +79,6 @@ export function RegisterPage() {
         backTo="/"
       />
 
-      <div className="mb-4">
-        <AlertMessage type="info" message={t('auth.demoNotice')} />
-      </div>
-
       {authError && (
         <div className="mb-4">
           <AlertMessage type="error" message={authError} />
