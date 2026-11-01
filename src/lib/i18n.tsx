@@ -96,7 +96,6 @@ const en: Dict = {
   'footer.contact': 'Contact',
   'footer.privacy': 'Privacy',
   'footer.terms': 'Terms',
-  'footer.demoNotice': 'This is a demonstration website. Bookings shown are sample data and not real.',
   'footer.rights': 'LocalFix. All rights reserved.',
 
   // Worker/provider card
@@ -133,7 +132,6 @@ const en: Dict = {
   'auth.signUpFailed': 'Registration failed. Please try again.',
   'auth.signUpSuccess': 'Account created! You can now sign in.',
   'auth.userExists': 'An account with this email already exists.',
-  'auth.demoNotice': 'This is a prototype authentication flow connected to a real backend. Your password is stored securely by Supabase Auth and never in plain text.',
   'auth.signingIn': 'Signing in...',
   'auth.registering': 'Creating account...',
 
@@ -257,7 +255,6 @@ const en: Dict = {
   'booking.success': 'Booking request submitted!',
   'booking.successDesc': 'Your booking reference is shown below. A provider will review your request and respond soon.',
   'booking.bookingRef': 'Booking reference',
-  'booking.demoNotice': 'This booking is connected to a real backend. A provider will see your request once they are assigned.',
   'booking.duplicateWarning': 'You already have an active booking for this service. Submit anyway?',
   'booking.anotherBooking': 'Book another service',
   'booking.viewMyBookings': 'View my bookings',
@@ -462,7 +459,6 @@ const bn: Dict = {
   'footer.contact': 'যোগাযোগ',
   'footer.privacy': 'গোপনীয়তা',
   'footer.terms': 'শর্তাবলী',
-  'footer.demoNotice': 'এটি একটি প্রদর্শনী ওয়েবসাইট। দেখানো বুকিংগুলি নমুনা তথ্য, বাস্তব নয়।',
   'footer.rights': 'LocalFix. সর্বস্বত্ব সংরক্ষিত।',
 
   // Worker/provider card
@@ -499,7 +495,6 @@ const bn: Dict = {
   'auth.signUpFailed': 'নিবন্ধন ব্যর্থ। আবার চেষ্টা করুন।',
   'auth.signUpSuccess': 'অ্যাকাউন্ট তৈরি হয়েছে! আপনি এখন সাইন ইন করতে পারেন।',
   'auth.userExists': 'এই ইমেল দিয়ে ইতিমধ্যে একটি অ্যাকাউন্ট আছে।',
-  'auth.demoNotice': 'এটি একটি প্রোটোটাইপ প্রমাণীকরণ প্রক্রিয়া যা একটি বাস্তব ব্যাকএন্ডের সাথে যুক্ত। আপনার পাসওয়ার্ড Supabase Auth দ্বারা নিরাপদে সংরক্ষিত, কখনো সরল টেক্সটে নয়।',
   'auth.signingIn': 'সাইন ইন হচ্ছে...',
   'auth.registering': 'অ্যাকাউন্ট তৈরি হচ্ছে...',
 
@@ -623,7 +618,6 @@ const bn: Dict = {
   'booking.success': 'বুকিং অনুরোধ জমা হয়েছে!',
   'booking.successDesc': 'আপনার বুকিং রেফারেন্স নিচে দেখানো হয়েছে। একজন প্রদানকারী আপনার অনুরোধ পর্যালোচনা করবেন এবং শীঘ্রই সাড়া দেবেন।',
   'booking.bookingRef': 'বুকিং রেফারেন্স',
-  'booking.demoNotice': 'এই বুকিং একটি বাস্তব ব্যাকএন্ডের সাথে যুক্ত। একজন প্রদানকারী নিযুক্ত হলে আপনার অনুরোধ দেখতে পাবেন।',
   'booking.duplicateWarning': 'আপনার এই পরিষেবার জন্য ইতিমধ্যে একটি সক্রিয় বুকিং আছে। তবুও জমা দেবেন?',
   'booking.anotherBooking': 'আরেকটি বুকিং করুন',
   'booking.viewMyBookings': 'আমার বুকিং দেখুন',
