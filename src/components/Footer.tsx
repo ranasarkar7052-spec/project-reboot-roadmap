@@ -43,13 +43,7 @@ export function Footer() {
           </nav>
         </div>
 
-        <div className="mt-8 rounded-xl bg-warning-50 px-4 py-3 ring-1 ring-warning-200">
-          <p className={`text-xs leading-relaxed text-warning-800 ${bengali ? 'font-bengali' : ''}`}>
-            {t('footer.demoNotice')}
-          </p>
-        </div>
-
-        <div className="mt-6 border-t border-neutral-100 pt-6">
+        <div className="mt-8 border-t border-neutral-100 pt-6">
           <p className={`text-xs text-neutral-400 ${bengali ? 'font-bengali' : ''}`}>
             © {new Date().getFullYear()} {t('footer.rights')}
           </p>
